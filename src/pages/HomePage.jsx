@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 
 import Review from '../components/Review';
+import { AuthContext } from '../context/AuthContext';
 
 
 const HomePage = () => {
+ 
+  
   const[reviews,setReview]=useState([])
   useEffect(() => {
     fetch('http://localhost:3500/allReview').then(res => res.json()).then(data => {

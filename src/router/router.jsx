@@ -4,6 +4,8 @@ import HomePage from '../pages/HomePage';
 import AllReview from '../pages/AllReview';
 import MyReview from '../pages/MyReview';
 import AddReview from '../pages/AddReview';
+import Register from '../pages/Register';
+import Login from '../pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: '/AddReview',
         element:<AddReview></AddReview>
+      },
+      {
+        path: '/register',
+        Component:Register
+      },
+      {
+        path: '/login',
+        Component:Login,
       }
 
     ]
