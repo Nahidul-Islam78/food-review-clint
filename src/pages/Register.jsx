@@ -3,8 +3,9 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router';
 
 const Register = () => {
-  const { LoginGoogle } = useContext(AuthContext);
+  const { LoginGoogle, CreateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  //google signUp
   const handelGoogleSignUP = () => {
     LoginGoogle().then(result => {
       console.log(result);
@@ -13,26 +14,58 @@ const Register = () => {
       console.log(error);
     })
   }
+  //register
+  const handelRegister = e => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    const result = pattern.test(password);
+    if (result) {
+      console.log('hello');
+    } else {
+      console.log(false);
+      return
+    }
+    if (password === confirmPassword) {
+      
+      CreateUser(email, password).then(user => {
+        console.log(user);
+        navigate('/');
+      }).catch(error => {
+        console.log(error)
+      })
+    } else {
+      console.log('no right password')
+    }
+    console.log(name, email, password);
+
+
+  }
+
   return (
     <div>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
         <div className="card-body">
-          <form>
+          <form onSubmit={handelRegister}>
             <fieldset className="fieldset">
               <label className="label">Name</label>
-              <input type="text" className="input" placeholder="Name" />
+              <input type="text" name='name' className="input" placeholder="Name" />
               <label className="label">Email</label>
-              <input type="email" className="input" placeholder="Email" />
+              <input type="email" name='email' className="input" placeholder="Email" />
+              <label className="label">Photo URL,</label>
+              <input type="text" name='photo' className="input" placeholder="Photo URL," />
               <label className="label">Password</label>
-              <input type="password" className="input" placeholder="Password" />
+              <input type="password" name='password' className="input" placeholder="Password" />
               <label className="label">Confirm Password</label>
               <input
                 type="password"
                 className="input"
                 placeholder="Confirm Password"
+                name='confirmPassword'
               />
-              <label className="label">Photo URL,</label>
-              <input type="text" className="input" placeholder="Photo URL," />
 
               <button className="btn btn-neutral mt-4">Register</button>
             </fieldset>
