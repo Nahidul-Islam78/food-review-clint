@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Register = () => {
   const { LoginGoogle, CreateUser } = useContext(AuthContext);
@@ -30,7 +30,7 @@ const Register = () => {
       return
     }
     if (password === confirmPassword) {
-      
+
       CreateUser(email, password).then(user => {
         console.log(user);
         navigate('/');
@@ -52,19 +52,39 @@ const Register = () => {
           <form onSubmit={handelRegister}>
             <fieldset className="fieldset">
               <label className="label">Name</label>
-              <input type="text" name='name' className="input" placeholder="Name" />
+              <input
+                type="text"
+                name="name"
+                className="input"
+                placeholder="Name"
+              />
               <label className="label">Email</label>
-              <input type="email" name='email' className="input" placeholder="Email" />
+              <input
+                type="email"
+                name="email"
+                className="input"
+                placeholder="Email"
+              />
               <label className="label">Photo URL,</label>
-              <input type="text" name='photo' className="input" placeholder="Photo URL," />
+              <input
+                type="text"
+                name="photo"
+                className="input"
+                placeholder="Photo URL,"
+              />
               <label className="label">Password</label>
-              <input type="password" name='password' className="input" placeholder="Password" />
+              <input
+                type="password"
+                name="password"
+                className="input"
+                placeholder="Password"
+              />
               <label className="label">Confirm Password</label>
               <input
                 type="password"
                 className="input"
                 placeholder="Confirm Password"
-                name='confirmPassword'
+                name="confirmPassword"
               />
 
               <button className="btn btn-neutral mt-4">Register</button>
@@ -104,6 +124,10 @@ const Register = () => {
             </svg>
             Continue with google
           </button>
+          <p>
+            <span>Are you have an account! please </span> 
+            <Link to="/login" className='underline'>Login</Link>
+          </p>
         </div>
       </div>
     </div>
