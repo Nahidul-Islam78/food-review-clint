@@ -9,7 +9,7 @@ const RootLayout = () => {
       <header className="w-11/12 mx-auto">
         <Header></Header>
       </header>
-      <main>
+      <main >
         <Outlet></Outlet>
       </main>
       <footer>

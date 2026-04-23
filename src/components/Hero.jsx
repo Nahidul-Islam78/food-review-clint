@@ -28,7 +28,7 @@ const Hero = () => {
         clickable: true,
       }}
       modules={[Autoplay, Pagination]}
-      className="mySwiper"
+      className="mySwiper "
     >
       <SwiperSlide>
         <HeroSlide1></HeroSlide1>

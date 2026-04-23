@@ -18,8 +18,8 @@ const HomePage = () => {
   },[])
   return (
     <div>
-      <section className="hero">
-      <Hero></Hero>
+      <section className="hero ">
+      <Hero></Hero> 
       </section>
       <section className='card w-11/12 mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
