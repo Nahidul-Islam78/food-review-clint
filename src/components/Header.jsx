@@ -4,22 +4,24 @@ import { AuthContext } from '../context/AuthContext';
 
 
 const Header = () => {
-  const { user, LogoutUser } = use(AuthContext);
+  const { user, LogoutUser, loading, setLoading } = use(AuthContext);
+  
   
   const handelLogout = () => {
     console.log(14)
-     LogoutUser()
-       .then(console.log("df"))
-       .catch(error => {
-         console.log(error);
-       });
+    LogoutUser()
+      .then(result => {
+        console.log(result);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
   const link = (
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/AllReview">All Reviews</NavLink>
-      <NavLink to="/MyReview">My Reviews</NavLink>
-      <NavLink to="/AddReview">Add Review</NavLink>
     </>
   );
   return (
@@ -69,10 +71,23 @@ const Header = () => {
                 className="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm"
               >
                 <li>
-                  <button onClick={handelLogout}>Logout</button>
+                  <button
+                    className="btn  btn-soft btn-info"
+                    onClick={handelLogout}
+                  >
+                    Logout
+                  </button>
                 </li>
                 <li>
-                  <a>Item 2</a>
+                  <NavLink className="btn  btn-soft btn-info" to="/MyReview">
+                    My Reviews
+                  </NavLink>
+                </li>
+                <li>
+                  {' '}
+                  <NavLink className="btn  btn-soft btn-info" to="/AddReview">
+                    Add Review
+                  </NavLink>
                 </li>
               </ul>
             </div>

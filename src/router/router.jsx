@@ -6,6 +6,7 @@ import MyReview from '../pages/MyReview';
 import AddReview from '../pages/AddReview';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
+import PrivetRoute from './PrivetRoute';
 
 const router = createBrowserRouter([
   {
@@ -14,30 +15,37 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component:HomePage
+        Component: HomePage,
       },
       {
         path: '/AllReview',
-        Component:AllReview
+        Component: AllReview,
       },
       {
         path: '/MyReview',
-        element:<MyReview></MyReview>
+        element: (
+          <PrivetRoute>
+            <MyReview></MyReview>
+          </PrivetRoute>
+        ),
       },
       {
         path: '/AddReview',
-        element:<AddReview></AddReview>
+        element: (
+          <PrivetRoute>
+            <AddReview></AddReview>
+          </PrivetRoute>
+        ),
       },
       {
         path: '/register',
-        Component:Register
+        Component: Register,
       },
       {
         path: '/login',
-        Component:Login,
-      }
-
-    ]
+        Component: Login,
+      },
+    ],
   },
 ]);
 export default router;
