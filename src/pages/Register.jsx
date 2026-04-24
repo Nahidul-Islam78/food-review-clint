@@ -24,7 +24,7 @@ const Register = () => {
     const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     const result = pattern.test(password);
     if (result) {
-      console.log('hello');
+      //console.log('hello');
     } else {
       console.log(false);
       return
@@ -38,9 +38,9 @@ const Register = () => {
         console.log(error)
       })
     } else {
-      console.log('no right password')
+     // console.log('no right password')
     }
-    console.log(name, email, password);
+    //console.log(name, email, password);
 
 
   }
