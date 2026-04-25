@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 
 
 const Header = () => {
-  const { user, LogoutUser, loading, setLoading } = use(AuthContext);
+  const { user, LogoutUser,  setLoading } = use(AuthContext);
   
   
   const handelLogout = () => {
@@ -20,8 +20,12 @@ const Header = () => {
   }
   const link = (
     <>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/AllReview">All Reviews</NavLink>
+      <NavLink to="/" className="btn  btn-soft btn-info ">
+        Home
+      </NavLink>
+      <NavLink to="/AllReview" className="btn  btn-soft btn-info ">
+        All Reviews
+      </NavLink>
     </>
   );
   return (
@@ -52,7 +56,9 @@ const Header = () => {
             {link}
           </ul>
         </div>
-        <p>Local Food Lovers Network</p>
+        <p className="bg-linear-to-r to-[#030000] from-[#07B2F5] bg-clip-text text-transparent text-xl font-bold">
+          Local Food Lovers Network
+        </p>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1  gap-2">{link}</ul>
@@ -72,7 +78,7 @@ const Header = () => {
               >
                 <li>
                   <button
-                    className="btn  btn-soft btn-info"
+                    className="btn  btn-soft btn-secondary"
                     onClick={handelLogout}
                   >
                     Logout
@@ -93,7 +99,7 @@ const Header = () => {
             </div>
           </>
         ) : (
-          <NavLink to="/register" className="btn  btn-soft btn-info">
+          <NavLink to="/register" className="btn  btn-soft btn-info ">
             Register
           </NavLink>
         )}

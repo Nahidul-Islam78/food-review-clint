@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from './../assets/logo.png'
+import { Link } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center bg-primary text-primary-content p-10">
+    <footer className="footer footer-horizontal footer-center bg-info text-info-content p-10">
       <aside>
         <img src={logo} className="w-10 h-10" alt="" />
         <p className="font-bold">
@@ -12,10 +13,15 @@ const Footer = () => {
           Providing reliable tech since 1992
         </p>
         <nav className="grid grid-flow-col gap-4 font-bold">
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <Link className="link link-hover" to="/myReview">
+            My Reviews
+          </Link>
+          <Link className="link link-hover" to="/allReview">
+            All Review
+          </Link>
+          <Link className="link link-hover" to="/addReview">
+            Add Review
+          </Link>
         </nav>
         <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
       </aside>
