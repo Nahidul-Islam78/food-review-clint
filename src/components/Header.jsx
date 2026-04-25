@@ -20,10 +20,10 @@ const Header = () => {
   }
   const link = (
     <>
-      <NavLink to="/" className="btn  btn-soft btn-info ">
+      <NavLink to="/" className="btn  btn-outline btn-info ">
         Home
       </NavLink>
-      <NavLink to="/AllReview" className="btn  btn-soft btn-info ">
+      <NavLink to="/AllReview" className="btn  btn-outline btn-info ">
         All Reviews
       </NavLink>
     </>
@@ -56,7 +56,7 @@ const Header = () => {
             {link}
           </ul>
         </div>
-        <p className="bg-linear-to-r to-[#030000] from-[#07B2F5] bg-clip-text text-transparent text-xl font-bold">
+        <p className="bg-linear-to-r to-[#1E90FF]  via-[#00BFFF] from-[#1E90FF] bg-clip-text text-transparent text-xl font-bold">
           Local Food Lovers Network
         </p>
       </div>
@@ -78,20 +78,20 @@ const Header = () => {
               >
                 <li>
                   <button
-                    className="btn  btn-soft btn-secondary"
+                    className="btn  btn-outline btn-secondary"
                     onClick={handelLogout}
                   >
                     Logout
                   </button>
                 </li>
                 <li>
-                  <NavLink className="btn  btn-soft btn-info" to="/MyReview">
+                  <NavLink className="btn  btn-soft btn-outline" to="/MyReview">
                     My Reviews
                   </NavLink>
                 </li>
                 <li>
                   {' '}
-                  <NavLink className="btn  btn-soft btn-info" to="/AddReview">
+                  <NavLink className="btn  btn-soft btn-outline" to="/AddReview">
                     Add Review
                   </NavLink>
                 </li>
@@ -99,7 +99,7 @@ const Header = () => {
             </div>
           </>
         ) : (
-          <NavLink to="/register" className="btn  btn-soft btn-info ">
+          <NavLink to="/register" className="btn  btn-outline btn-info ">
             Register
           </NavLink>
         )}

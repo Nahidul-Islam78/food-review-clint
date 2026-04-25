@@ -3,7 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router';
 
 const Register = () => {
-  const { LoginGoogle, CreateUser } = useContext(AuthContext);
+  const { LoginGoogle, CreateUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
   //google signUp
   const handelGoogleSignUP = () => {
@@ -18,6 +18,7 @@ const Register = () => {
   const handelRegister = e => {
     e.preventDefault();
     const name = e.target.name.value;
+    const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
@@ -30,9 +31,15 @@ const Register = () => {
       return
     }
     if (password === confirmPassword) {
-
+      //create new user
       CreateUser(email, password).then(user => {
         console.log(user);
+        //update user profile
+        updateUser(name, photo).then((data) => {
+          console.log(data);
+        }).then(error => {
+          console.log(error);
+        })
         navigate('/');
       }).catch(error => {
         console.log(error)
@@ -46,7 +53,7 @@ const Register = () => {
   }
 
   return (
-    <div>
+    <div className='h-screen '>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
         <div className="card-body">
           <form onSubmit={handelRegister}>
@@ -57,6 +64,7 @@ const Register = () => {
                 name="name"
                 className="input"
                 placeholder="Name"
+                required
               />
               <label className="label">Email</label>
               <input
@@ -64,6 +72,7 @@ const Register = () => {
                 name="email"
                 className="input"
                 placeholder="Email"
+                required
               />
               <label className="label">Photo URL,</label>
               <input
@@ -71,6 +80,7 @@ const Register = () => {
                 name="photo"
                 className="input"
                 placeholder="Photo URL,"
+                required
               />
               <label className="label">Password</label>
               <input
@@ -78,6 +88,7 @@ const Register = () => {
                 name="password"
                 className="input"
                 placeholder="Password"
+                required
               />
               <label className="label">Confirm Password</label>
               <input
@@ -85,6 +96,7 @@ const Register = () => {
                 className="input"
                 placeholder="Confirm Password"
                 name="confirmPassword"
+                required
               />
 
               <button className="btn btn-neutral mt-4">Register</button>

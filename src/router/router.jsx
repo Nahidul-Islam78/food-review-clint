@@ -7,6 +7,7 @@ import AddReview from '../pages/AddReview';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import PrivetRoute from './PrivetRoute';
+import ReviewDetails from '../pages/ReviewDetails';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/AllReview',
         Component: AllReview,
+      },
+      {
+        path: '/reviewDetails',
+        element:<ReviewDetails></ReviewDetails>
       },
       {
         path: '/MyReview',

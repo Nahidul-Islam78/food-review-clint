@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const HeroSlide1 = () => {
   return (
     <div className="hero bg-info  min-h-screen">
-      <div className="hero-content lg:gap-20 flex-col md:flex-row-reverse lg:flex-row-reverse">
+      <div className="hero-content  lg:gap-20 flex-col md:flex-row-reverse lg:flex-row-reverse">
         <img
           src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           className="max-w-sm rounded-lg"

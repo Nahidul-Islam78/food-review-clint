@@ -12,7 +12,11 @@ const AddReview = () => {
     const restaurantName = e.target.restaurantName.value;
     const starRating = e.target.starRating.value;
     const reviewText = e.target.reviewText.value;
-    const reviewInfo = { foodName, foodImage, restaurantName, starRating, reviewText };
+    const location = e.target.location.value;
+    const reviewer = `${user.displayName}`;
+    const email = `${user.email}`;
+
+    const reviewInfo = { foodName, foodImage, restaurantName, starRating, reviewText,reviewer,email,location};
     console.log(reviewInfo);
    fetch(`http://localhost:3500/addReview?email=${user.email}`, {
      method: 'POST',
