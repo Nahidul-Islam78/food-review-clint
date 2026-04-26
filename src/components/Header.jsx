@@ -85,13 +85,13 @@ const Header = () => {
                   </button>
                 </li>
                 <li>
-                  <NavLink className="btn  btn-soft btn-outline" to="/MyReview">
+                  <NavLink className="btn btn-outline btn-info mt-1" to="/MyReview">
                     My Reviews
                   </NavLink>
                 </li>
                 <li>
                   {' '}
-                  <NavLink className="btn  btn-soft btn-outline" to="/AddReview">
+                  <NavLink className="btn  btn-outline btn-info mt-1" to="/AddReview">
                     Add Review
                   </NavLink>
                 </li>

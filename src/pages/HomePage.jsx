@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 
 import Review from '../components/Review';
 import { AuthContext } from '../context/AuthContext';
+import Restaurant from '../components/Restaurant';
 
 
 const HomePage = () => {
@@ -22,11 +23,20 @@ const HomePage = () => {
         <Hero></Hero>
       </section>
       <section className="card w-11/12 mx-auto items-center  py-8">
+        <p className="bg-linear-to-r to-[#1E90FF]  via-[#00BFFF] from-[#1E90FF] bg-clip-text text-transparent text-xl font-bold py-5">
+          Top Rated Review
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {reviews.map(singleReview => (
             <Review key={singleReview._id} singleReview={singleReview}></Review>
           ))}
         </div>
+      </section>
+      <section className="popular-restaurant card w-11/12 mx-auto items-center  py-8">
+        <p className="bg-linear-to-r to-[#1E90FF]  via-[#00BFFF] from-[#1E90FF] bg-clip-text text-transparent text-xl font-bold py-5">
+          Popular Restaurant
+        </p>
+        <Restaurant></Restaurant>
       </section>
     </div>
   );
