@@ -1,5 +1,6 @@
 import { use } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 
 
@@ -29,23 +30,37 @@ const AddReview = () => {
      .then(res => res.json())
      .then(data => {
        console.log(data);
+       e.target.reset()
+       toast.success('Create review successfully', {
+         position: 'top-right',
+         autoClose: 5000,
+         hideProgressBar: false,
+         closeOnClick: false,
+         pauseOnHover: true,
+         draggable: true,
+         progress: undefined,
+         theme: 'light',
+         transition: Bounce,
+       });
+       
      });
 
   }
   
   
   return (
-    <div>
+    <div className="h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
         <div className="card-body">
           <form onSubmit={handelCreateProduct}>
-            <fieldset className="fieldset">
+            <fieldset className="fieldset ">
               <label className="label">Food Name</label>
               <input
                 type="text"
                 name="foodName"
                 className="input"
                 placeholder="Food Name"
+                required
               />
 
               <label className="label">Food Image</label>
@@ -54,6 +69,7 @@ const AddReview = () => {
                 name="photo"
                 className="input"
                 placeholder="Food Image"
+                required
               />
               <label className="label">Restaurant Name</label>
               <input
@@ -61,6 +77,7 @@ const AddReview = () => {
                 name="restaurantName"
                 className="input"
                 placeholder="Restaurant Name"
+                required
               />
               <label className="label">Location</label>
               <input
@@ -68,6 +85,7 @@ const AddReview = () => {
                 name="location"
                 className="input"
                 placeholder="Location"
+                required
               />
               <label className="label">Star Rating</label>
               <input
@@ -75,6 +93,7 @@ const AddReview = () => {
                 name="starRating"
                 className="input"
                 placeholder="Star Rating"
+                required
               />
               <label className="label">Review Text</label>
               <input
@@ -82,6 +101,7 @@ const AddReview = () => {
                 name="reviewText"
                 className="input"
                 placeholder="Review Text"
+                required
               />
 
               <button className="btn btn-neutral mt-4">Create Review</button>
@@ -89,6 +109,19 @@ const AddReview = () => {
           </form>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 };
