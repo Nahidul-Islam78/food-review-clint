@@ -1,16 +1,37 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const { LoginGoogle, LoginUser } = useContext(AuthContext);
   const navigate=useNavigate()
   const handelGoogleSignIn = () => {
     LoginGoogle().then(result => {
-      console.log(result)
+      toast.success('Login successfully!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+        transition: Bounce,
+      });
       navigate('/')
     }).catch(error => {
-      console.log(error)
+      toast.error('Failed Login', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+        transition: Bounce,
+      });
     })
   }
   const handelLogin = e => {
@@ -20,14 +41,39 @@ const Login = () => {
     console.log(email, password);
     LoginUser(email, password).then(user => {
       console.log(user.user);
+      toast.success('Login successfully!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+        transition: Bounce,
+      });
+
       navigate('/');
     }).catch(error => {
-      console.log(error);
+      toast.error(
+                 'Failed Login',
+                 {
+                   position: 'bottom-center',
+                   autoClose: 5000,
+                   hideProgressBar: false,
+                   closeOnClick: false,
+                   pauseOnHover: true,
+                   draggable: true,
+                   progress: undefined,
+                   theme: 'light',
+                   transition: Bounce,
+                 },
+               );
     })
 
   }
   return (
-    <div>
+    <div className='h-screen'>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
         <div className="card-body">
           <form onSubmit={handelLogin}>
@@ -85,9 +131,21 @@ const Login = () => {
             </svg>
             Continue with google
           </button>
-        
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
   const { LoginGoogle, CreateUser, updateUser } = useContext(AuthContext);
@@ -27,25 +28,75 @@ const Register = () => {
     if (result) {
       //console.log('hello');
     } else {
-      console.log(false);
+      toast.error(
+        'Password must include uppercase, lowercase, and be ≥ 6 characters',
+        {
+          position: 'bottom-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+          transition: Bounce,
+        },
+      );
       return
     }
     if (password === confirmPassword) {
       //create new user
       CreateUser(email, password).then(user => {
-        console.log(user);
+        toast.success('Register successfully', {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+          transition: Bounce,
+        });
         //update user profile
         updateUser(name, photo).then((data) => {
           console.log(data);
+           navigate('/');
         }).then(error => {
-          console.log(error);
+          toast.error(
+            'Failed Register',
+            {
+              position: 'bottom-center',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'light',
+              transition: Bounce,
+            },
+          );
         })
-        navigate('/');
+       
       }).catch(error => {
         console.log(error)
       })
     } else {
-     // console.log('no right password')
+      toast.error(
+        'confirm password is not matched!',
+        {
+          position: 'bottom-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+          transition: Bounce,
+        },
+      );
     }
     //console.log(name, email, password);
 
@@ -53,7 +104,7 @@ const Register = () => {
   }
 
   return (
-    <div className='h-screen '>
+    <div className="h-screen ">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
         <div className="card-body">
           <form onSubmit={handelRegister}>
@@ -137,11 +188,26 @@ const Register = () => {
             Continue with google
           </button>
           <p>
-            <span>Are you have an account! please </span> 
-            <Link to="/login" className='underline'>Login</Link>
+            <span>Are you have an account! please </span>
+            <Link to="/login" className="underline">
+              Login
+            </Link>
           </p>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 };
