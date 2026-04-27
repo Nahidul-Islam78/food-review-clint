@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { use, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 import Swal from 'sweetalert2';
 const MyReviews = () => {
   const[myReviews,setMyReview]=useState([])
   const { user } = use(AuthContext);
+  const navigate=useNavigate()
   
   useEffect(() => {
     fetch(`http://localhost:3500/myReview?email=${user.email}`, {
@@ -49,7 +50,13 @@ const MyReviews = () => {
       });
    
       
-    }
+  }
+  const handelEdit = (id) => {
+    console.log(id);
+    
+    
+    navigate(`/editReview/${id}`)
+  }
     
   return (
     <div>
@@ -94,7 +101,7 @@ const MyReviews = () => {
                     </button>
                   </td>
                   <td>
-                    <Link className="btn  btn-outline btn-info">Edit</Link>
+                    <button onClick={()=>{handelEdit(singleReview._id)}} className="btn  btn-outline btn-info">Edit</button>
                   </td>
                 </tr>
               ))}

@@ -38,7 +38,7 @@ const Review = ({ singleReview }) => {
         <div className="grid grid-cols-3 gap-2">
           <p className="flex justify-baseline items-center gap-2">
             <FaLocationDot size={20} />
-            <span>Dhaka, Bangladesh</span>
+            <span>{location}</span>
           </p>
           <p className="flex justify-baseline items-center gap-2">
             <IoIosRestaurant size={20} />

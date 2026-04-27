@@ -8,6 +8,7 @@ import Login from '../pages/Login';
 import PrivetRoute from './PrivetRoute';
 import ReviewDetails from '../pages/ReviewDetails';
 import MyReviews from '../pages/MyReviews';
+import EditReview from '../pages/EditReview';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,12 @@ const router = createBrowserRouter([
             <AddReview></AddReview>
           </PrivetRoute>
         ),
+      },
+      {
+        path: '/editReview/:id',
+        element: <PrivetRoute>
+          <EditReview></EditReview>
+        </PrivetRoute>
       },
       {
         path: '/register',
