@@ -2,12 +2,12 @@ import { createBrowserRouter } from 'react-router';
 import RootLayout from '../layout/RootLayout';
 import HomePage from '../pages/HomePage';
 import AllReview from '../pages/AllReview';
-import MyReview from '../pages/MyReview';
 import AddReview from '../pages/AddReview';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import PrivetRoute from './PrivetRoute';
 import ReviewDetails from '../pages/ReviewDetails';
+import MyReviews from '../pages/MyReviews';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         path: '/MyReview',
         element: (
           <PrivetRoute>
-            <MyReview></MyReview>
+            <MyReviews></MyReviews>
           </PrivetRoute>
         ),
       },
