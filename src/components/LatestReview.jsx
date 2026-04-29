@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 
 const LatestReview = ({ singleReview }) => {
   const {
+    _id,
     foodName,
     foodImage,
     restaurantName,
@@ -51,7 +52,7 @@ const LatestReview = ({ singleReview }) => {
         </div>
         <div className="card-actions justify-end">
           <Link
-            to="/reviewDetails"
+            to={`/reviewDetails/${_id}`}
             className="btn btn-outline rounded-xl btn-info"
           >
             View Details

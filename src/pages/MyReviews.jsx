@@ -89,7 +89,7 @@ const MyReviews = () => {
                   </td>
                   <td>{singleReview.foodName}</td>
                   <td>{singleReview.restaurantName}</td>
-                  <td>{new Date(singleReview.date).toLocaleString()}</td>
+                  <td>{new Date(singleReview.createAt).toLocaleString()}</td>
                   <td>
                     <button
                       onClick={() => {
@@ -101,7 +101,14 @@ const MyReviews = () => {
                     </button>
                   </td>
                   <td>
-                    <button onClick={()=>{handelEdit(singleReview._id)}} className="btn  btn-outline btn-info">Edit</button>
+                    <button
+                      onClick={() => {
+                        handelEdit(singleReview._id);
+                      }}
+                      className="btn  btn-outline btn-info"
+                    >
+                      Edit
+                    </button>
                   </td>
                 </tr>
               ))}

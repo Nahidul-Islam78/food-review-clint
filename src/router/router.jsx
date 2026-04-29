@@ -9,6 +9,7 @@ import PrivetRoute from './PrivetRoute';
 import ReviewDetails from '../pages/ReviewDetails';
 import MyReviews from '../pages/MyReviews';
 import EditReview from '../pages/EditReview';
+import FavoritePage from '../pages/FavoritePage';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
         Component: AllReview,
       },
       {
-        path: '/reviewDetails',
+        path: '/reviewDetails/:id',
         element:<ReviewDetails></ReviewDetails>
       },
       {
@@ -48,6 +49,13 @@ const router = createBrowserRouter([
         element: <PrivetRoute>
           <EditReview></EditReview>
         </PrivetRoute>
+      },
+      {
+        path: '/favoriteReview',
+        element: <PrivetRoute>
+          <FavoritePage></FavoritePage>
+        </PrivetRoute>
+
       },
       {
         path: '/register',

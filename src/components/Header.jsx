@@ -95,6 +95,12 @@ const Header = () => {
                     Add Review
                   </NavLink>
                 </li>
+                <li>
+                  {' '}
+                  <NavLink className="btn  btn-outline btn-info mt-1" to="/favoriteReview">
+                    Favorite Review
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </>

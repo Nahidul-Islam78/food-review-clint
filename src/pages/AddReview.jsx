@@ -16,8 +16,9 @@ const AddReview = () => {
     const location = e.target.location.value;
     const reviewer = `${user.displayName}`;
     const email = `${user.email}`;
+    const isFavorite = false;
 
-    const reviewInfo = { foodName, foodImage, restaurantName, starRating, reviewText,reviewer,email,location};
+    const reviewInfo = { foodName, foodImage, restaurantName, starRating, reviewText,reviewer,email,location,isFavorite};
     console.log(reviewInfo);
    fetch(`http://localhost:3500/addReview?email=${user.email}`, {
      method: 'POST',
