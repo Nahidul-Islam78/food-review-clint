@@ -10,11 +10,13 @@ import ReviewDetails from '../pages/ReviewDetails';
 import MyReviews from '../pages/MyReviews';
 import EditReview from '../pages/EditReview';
 import FavoritePage from '../pages/FavoritePage';
+import ErrorPage from '../pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     Component: RootLayout,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -67,5 +69,6 @@ const router = createBrowserRouter([
       },
     ],
   },
+ 
 ]);
 export default router;

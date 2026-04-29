@@ -36,15 +36,7 @@ const Review = ({ singleReview}) => {
     })
       .then(res => res.json())
       .then(data => {
-        fetch(`http://localhost:3500/updateReview/${_id}`, {
-          method: 'PATCH',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ isFavorite: true }),
-        })
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-          });
+        console.log(data)
       });
     
     
@@ -85,7 +77,7 @@ const Review = ({ singleReview}) => {
             <span>{reviewer}</span>
           </p>
         </div>
-        <div className="card-actions justify-end flex ">
+        <div className="card-actions justify-end grid grid-cols-3 ">
           <button
             onClick={() => {
               handelFavoriteReview(`${_id}`);

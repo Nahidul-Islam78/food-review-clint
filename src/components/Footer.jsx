@@ -1,12 +1,18 @@
 import React from 'react';
-import logo from './../assets/logo.png'
+
 import { Link } from 'react-router';
 
 const Footer = () => {
   return (
     <footer className="footer footer-horizontal footer-center bg-linear-to-r to-[#1E90FF]  via-[#00BFFF] from-[#1E90FF] text-info-content p-10">
       <aside>
-        <img src={logo} className="w-10 h-10" alt="" />
+        <img
+          src={
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwpNacRSP3WgbRjC5kUclZSoxLJbj2-tjiEg&s'
+          }
+          alt="logo"
+          className='h-20 w-20'
+        />
         <p className="font-bold">
           Local Food Lovers Network
           <br />

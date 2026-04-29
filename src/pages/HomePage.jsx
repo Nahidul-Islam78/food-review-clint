@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 
 import Review from '../components/Review';
@@ -8,8 +8,7 @@ import LatestReview from '../components/LatestReview';
 
 
 const HomePage = () => {
- 
-  
+  const {loading}=useContext(AuthContext)
   const [reviews, setReview] = useState([])
   const[latestReviews,setLatestReview]=useState([])
   
@@ -25,7 +24,10 @@ const HomePage = () => {
       setLatestReview(data)
     })
     
-  },[])
+  }, [])
+  if (loading) {
+    return <span className="loading loading-spinner loading-xl"></span>;
+  }
   return (
     <div>
       <section className="hero ">

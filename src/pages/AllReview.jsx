@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Review from '../components/Review';
 
@@ -14,7 +14,8 @@ const AllReview = () => {
       setAllReview(data);
     })
     
-  },[])
+  }, [])
+
   return (
     <div>
       <section className="top-review card w-11/12 mx-auto items-center  py-8">
